@@ -1,4 +1,9 @@
 <h1>Login</h1>
+
+<% if @error %>
+  <%= @error %>
+<% end %>
+
 <%= form_tag({:controller => 'sessions', :action => 'create', :method => 'post'}) do %>
 	<%= text_field_tag :username, nil, :placeholder => 'Username' %><br>
 	<%= password_field_tag :password, nil, :placeholder => 'Password' %><br>
