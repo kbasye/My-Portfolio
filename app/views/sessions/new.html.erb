@@ -1,0 +1,6 @@
+<h1>Login</h1>
+<%= form_tag({:controller => 'sessions', :action => 'create', :method => 'post'}) do %>
+	<%= text_field_tag :username, nil, :placeholder => 'Username' %><br>
+	<%= password_field_tag :password, nil, :placeholder => 'Password' %><br>
+	<%= submit_tag 'Log In', :class => 'btn' %><br>
+<% end %>
