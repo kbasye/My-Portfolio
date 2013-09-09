@@ -1,28 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mine</title>
+ <title>Katey Basye</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<h1>Katey Basye</h1>
-	<ul>
-		<% if current_user? %>
-			<li><%= link_to 'Log Out', logout_path %></li>	
-		<% else %>
-			<li><%= link_to 'Log In', login_path %></li>
-		<% end %>
-	</ul>
-	<ul>
-		<li><%= link_to 'Home', root_url %></li>
-		<li><%= link_to 'Bio', root_url %></li>
-		<li><%= link_to 'Work', root_url %></li>
-		<li><%= link_to 'Blog', root_url %></li>
-		<li><%= link_to 'Contact', root_url %></li>
-	</ul>
-<%= yield %>
-
+	<h1><%= link_to 'Katey Basye', root_url %></h1>
+	<%= render 'application/main_nav' %>
+	<%= yield %>
 </body>
 </html>

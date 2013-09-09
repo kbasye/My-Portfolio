@@ -1,0 +1,15 @@
+<ul>
+	<% if current_user? %>
+		<li><%= link_to 'Log Out', logout_path %></li>	
+		<li><%= link_to 'New Project', new_project_path %></li>	
+	<% else %>
+		<li><%= link_to 'Log In', login_path %></li>
+	<% end %>
+</ul>
+<ul>
+	<li><%= link_to 'Home', root_url %></li>
+	<li><%= link_to 'Bio', root_url %></li>
+	<li><%= link_to 'Work', projects_path %></li>
+	<li><%= link_to 'Blog', root_url %></li>
+	<li><%= link_to 'Contact', root_url %></li>
+</ul>
