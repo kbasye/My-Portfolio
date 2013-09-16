@@ -2,6 +2,7 @@ class ProjectsController < ActionController::Base
 	def new
 		if session[:auth_token]
 			@project = Project.new
+			# @project.tags.build
 		else
 			redirect_to root_url
 		end
@@ -10,6 +11,10 @@ class ProjectsController < ActionController::Base
 	def create
 		@project = Project.new(params[:project])
 		if @project.save
+			# params[:project][:tags_attributes]["0"][:name].split(', ').each do |name|
+			# 	tag = Tag.create(:name => name)
+			# 	@project.tags << tag
+			# end
 			redirect_to project_path(@project)
 		else
 			render :new

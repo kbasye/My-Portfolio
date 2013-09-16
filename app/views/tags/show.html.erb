@@ -1,0 +1,5 @@
+<h1>Items tagged '<%= @tag.name %>'</h1>
+<% @taggable.each do |taggable| %>
+	<h2><%= taggable.title %></h2>
+	<p><%= taggable.caption %></p>
+<% end %>

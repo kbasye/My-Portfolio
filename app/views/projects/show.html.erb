@@ -1,5 +1,10 @@
 <h1><%= @project.title %></h1>
 <p><%= @project.description.html_safe %></p>
+<ul>
+	<% @project.tags.each do |tag| %>
+		<li><%= link_to tag.name, project_tag_path(tag) %></li>
+	<% end %>
+</ul>
 
 <% if session[:auth_token] %>
 	<ul>

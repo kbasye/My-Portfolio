@@ -1,7 +1,13 @@
 <h1>New Project</h1>
 <%= form_for @project do |f| %>
-		<%= f.text_field :title, :placeholder => 'Title' %><br>
-		<%= f.text_field :caption, :placeholder => 'Caption' %><br>
-		<%= f.text_area :description, :placeholder => 'Description' %><br>
+	<%= f.text_field :title, :placeholder => 'Title' %><br>
+	<%= f.text_field :caption, :placeholder => 'Caption' %><br>
+	<%= f.text_area :description, :placeholder => 'Description' %><br>
+
+	<%= f.fields_for :tags, @project.tags do |tag_field| %>
+		<%= tag_field.text_field :name, :placeholder => 'Tags' %><br>
+	<% end %>
+	
 	<%= f.submit 'Submit' %><%= button_to 'Cancel', :action => 'index' %>
 <% end %>
+
