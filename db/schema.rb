@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130919022645) do
 
   create_table "project_attachments", :force => true do |t|
     t.text     "caption"
+    t.string   "title"
     t.integer  "project_id"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false

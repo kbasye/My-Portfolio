@@ -2,21 +2,16 @@ class ProjectsController < ActionController::Base
 	def new
 		if session[:auth_token]
 			@project = Project.new
-			@project_attachment = ProjectAttachment.new
+			@project.project_attachments.build
+			@project.tags.build
 		else
 			redirect_to root_url
 		end
 	end
 
 	def create
-		@project = Project.new(
-			:caption => params[:project][:caption],
-			:description => params[:project][:description],
-			:title => params[:project][:title])
+		@project = Project.new(params[:project])
 		if @project.save
-			project_attachment = ProjectAttachment.create(params[:project][:project_attachments])
-			@project.project_attachments << project_attachment
-			Tag.create_tags(@project, params)
 			redirect_to project_path(@project)
 		else
 			render :new

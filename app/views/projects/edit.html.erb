@@ -3,6 +3,18 @@
 	<%= f.text_field :title, :value => @project.title %><br>
 	<%= f.text_field :caption, :value => @project.caption %><br>
 	<%= f.text_area :description, :value => @project.description %><br>
-
+	<h2>Attachments</h2>
+	<%= f.fields_for :project_attachments do |attachment| %>
+		<%= attachment.text_field :title %><br>
+		<%#= image_tag attachmenturl(:medium) %>
+		<%= attachment.text_area :caption, size: "80x10" %><br>
+		<%= attachment.file_field :attachment %><br>
+		<%= attachment.text_field :attachment_file_name %><br>
+		<%= attachment.check_box :_destroy %><%= f.label :_destroy, "X Photo X" %><br>
+	<% end %>
+	<h3>Tags</h3>
+	<%= f.fields_for :tags do |tag_field| %>	
+		<%= tag_field.text_field :name %><br>
+	<% end %>
 	<%= f.submit 'Update' %><%= button_to 'Cancel', :action => 'show' %>
 <% end %>

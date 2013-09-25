@@ -2,11 +2,12 @@
 <%= form_for @project do |f| %>
 	<%= f.text_field :title, :placeholder => 'Title' %><br>
 	<%= f.text_field :caption, :placeholder => 'Caption' %><br>
-	<%= f.text_area :description, :placeholder => 'Description' %><br>
+	<%= f.text_area :description, size: "80x10", :placeholder => 'Description' %><br>
 
 	<h2>Attachments</h2>
 	<%= f.fields_for :project_attachments do |attachment| %>
-		<%= attachment.text_area :caption, :placeholder => 'Caption' %><br>
+		<%= attachment.text_field :title, :placeholder => 'Title' %><br>
+		<%= attachment.text_area :caption, size: "80x10", :placeholder => 'Caption' %><br>
 		<%= attachment.file_field :attachment %><br>
 		<%= attachment.text_field :attachment_file_name, :placeholder => 'File Name' %><br>
 	<% end %>
