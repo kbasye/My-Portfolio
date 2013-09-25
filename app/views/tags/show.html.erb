@@ -1,5 +1,10 @@
 <h1>Items tagged '<%= @tag.name %>'</h1>
-<% @taggable.each do |taggable| %>
-	<h2><%= taggable.title %></h2>
-	<p><%= taggable.caption %></p>
+<% @taggings.each do |tagging| %>
+	<h2><%= link_to tagging.title, "/#{tagging.namespace}/#{tagging.id}" %></h2>
+	<p><%= tagging.caption %></p>
+	<ul>
+	<% tagging.tags.each do |tag| %>
+		<li><%= link_to tag.name, tagged_path(tag) %></li>
+	<% end %>
+	</ul>
 <% end %>

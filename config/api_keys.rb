@@ -1,0 +1,6 @@
+ENV['DROPBOX_KEY'] = '27fz9nf5ug0i0pb'
+ENV['DROPBOX_SECRET'] = 'eclmhd6jbc5ylcj'
+ENV['DROPBOX_TOKEN'] =  'bebhj2own6nbedgd'
+ENV['DROPBOX_TOKEN_SECRET'] = 'p8r6led939q6583'
+ENV['DROPBOX_USER_ID'] = '23864138'
+ENV['DROPBOX_ACCESS'] = 'app_folder'

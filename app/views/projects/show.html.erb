@@ -1,8 +1,15 @@
 <h1><%= @project.title %></h1>
+<% @project.project_attachments.each do |project_attachment| %>
+	<h2><%= project_attachment.attachment_file_name %></h2>
+	<p>
+		<%= image_tag project_attachment.attachment.url %><br>
+		<%= project_attachment.caption %>
+	</p>
+<% end %>
 <p><%= @project.description.html_safe %></p>
 <ul>
 	<% @project.tags.each do |tag| %>
-		<li><%= link_to tag.name, project_tag_path(tag) %></li>
+		<li><%= link_to tag.name, tagged_path(tag) %></li>
 	<% end %>
 </ul>
 

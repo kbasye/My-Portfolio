@@ -11,7 +11,10 @@ Mine::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   resources :users
-
+  resources :projects do
+    resources :project_attachments
+  end
+  resources :tags, :as => 'tagged'
 
   resources :sessions, :only => [:new, :create, :destroy] 
   match 'login' => 'sessions#new', :as => :login
