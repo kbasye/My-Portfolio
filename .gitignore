@@ -15,3 +15,5 @@
 /tmp
 
 /config/dropbox.yml
+/config/initializers/goodreads.rb
+/config/initializers/runkeeper.rb

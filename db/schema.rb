@@ -11,11 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130919022645) do
+ActiveRecord::Schema.define(:version => 20130930201520) do
+
+  create_table "entries", :force => true do |t|
+    t.text     "caption"
+    t.datetime "original_created_at"
+    t.string   "source_name"
+    t.string   "source_url"
+    t.string   "title"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "project_attachments", :force => true do |t|
     t.text     "caption"
+    t.string   "remote_url"
     t.string   "title"
+    t.integer  "entry_id"
     t.integer  "project_id"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false

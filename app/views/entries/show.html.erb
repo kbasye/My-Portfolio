@@ -1,0 +1,10 @@
+<h1><%= @entry.title %></h1>
+<p><%= @entry.caption %></p>
+<p><%= link_to @entry.source_name, @entry.source_url %></p>
+<p><%= image_tag @entry.project_attachments.last.attachment.url(:medium) unless @entry.project_attachments.empty? %></p>
+<%= render 'tags/list_tag', :entity => @entry %>
+<hr>
+
+<% if session[:auth_token] %>
+	<%= render 'edit_delete', :entry => @entry %>
+<% end %>

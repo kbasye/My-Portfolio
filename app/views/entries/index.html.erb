@@ -1,0 +1,8 @@
+<h1>A Day In The Life</h1>
+<% @entries.each do |entry| %>
+	<h2><%= link_to entry.title, entry_path(entry) %></h2>
+	<p><%= entry.caption %></p>
+	<p><%= image_tag entry.project_attachments.last.attachment.url(:medium) unless entry.project_attachments.empty? %></p>
+	<%= link_to entry.source_name, entry.source_url, :target => "_blank" %>
+	<%= render 'tags/list_tag', :entity => entry %>
+<% end %>

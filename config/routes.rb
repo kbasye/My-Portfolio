@@ -15,6 +15,10 @@ Mine::Application.routes.draw do
     resources :project_attachments
   end
   resources :tags, :as => 'tagged'
+  
+  resources :entries do
+    resources :project_attachments
+  end
 
   resources :sessions, :only => [:new, :create, :destroy] 
   match 'login' => 'sessions#new', :as => :login

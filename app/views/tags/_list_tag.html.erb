@@ -1,0 +1,5 @@
+<ul>
+	<% entity.tags.each do |tag| %>
+		<li><%= link_to tag.name, tagged_path(tag) %></li>
+	<% end %>
+</ul>

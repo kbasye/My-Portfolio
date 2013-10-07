@@ -1,0 +1,13 @@
+<h2>
+	<%= project_attachment.attachment_file_name %>
+</h2>
+<% if session[:auth_token] %>
+	<span>
+		<%= button_to 'X Photo X', project_project_attachment_path(project_attachment), :method => :delete %>
+	</span>
+<% end %>
+<p>
+	<%= image_tag project_attachment.attachment.url(:medium) if project_attachment.attachment.exists? %><br>
+	<%= project_attachment.caption %>
+</p>
+<hr>

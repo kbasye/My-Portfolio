@@ -28,14 +28,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem "paperclip", "~> 3.0"
 gem "paperclip-dropbox"
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+gem 'health_graph'
+gem 'goodreads'

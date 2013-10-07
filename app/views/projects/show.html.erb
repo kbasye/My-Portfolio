@@ -1,29 +1,11 @@
 <h1><%= @project.title %></h1>
 <p><%= @project.description.html_safe %></p>
 <hr>
-<% @project.project_attachments.each do |project_attachment| %>
-	<h2>
-		<%= project_attachment.attachment_file_name %>
-	</h2>
-	<% if session[:auth_token] %>
-		<span>
-			<%= button_to 'X Photo X', project_project_attachment_path(project_attachment), :method => :delete %>
-		</span>
-	<% end %>
-	<p>
-		<%= image_tag project_attachment.attachment.url(:medium) if project_attachment.attachment.exists? %><br>
-		<%= project_attachment.caption %>
-	</p>
-	<hr>
-<% end %>
-<ul>
-	<% @project.tags.each do |tag| %>
-		<li><%= link_to tag.name, tagged_path(tag) %></li>
-	<% end %>
-</ul>
+<%= render 'project_attachments/list_project_attachment', :project => @project %>
+
+<%= render 'tags/list_tag', :entity => @project %>
 <hr>
 
 <% if session[:auth_token] %>
-	<%= link_to 'Edit', edit_project_path(@project) %>
-	<%= button_to 'X Project X', @project, :method=>:delete %>
+	<%= render 'edit_delete', :project => @project %>
 <% end %>
